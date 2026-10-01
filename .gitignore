@@ -1,12 +1,38 @@
-# Output folder(s)
-dist/
-app/
+# Build output
+/native/build/
+build/
+DerivedData/
+*.app
+*.dSYM/
+*.xcarchive
+*.dmg
+*.zip
 
-# Node
-node_modules
+# Secrets and signing material — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.p8
+*.p12
+*.key
+*.cer
+*.certSigningRequest
+*.mobileprovision
+*.provisionprofile
+*.keychain
+*.keychain-db
+notarytool*.json
 
-# macOS
+# Editors, tools and local agent state
 .DS_Store
-
-#vscode
 .vscode/
+.idea/
+xcuserdata/
+*.xcuserstate
+.swiftpm/
+.claude/
+*.local.*
+*.log
+*.swp
+*~
