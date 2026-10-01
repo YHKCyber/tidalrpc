@@ -43,13 +43,13 @@ command-line SDK setup may lack.
   copy once from `ririxidev.TidalRPC`); original Discord application kept.
   Apple silicon only. Unsigned/un-notarized; README documents Control-click Open
   and the Screen Recording grant.
-- Publish from the `publish` branch: upstream rxri history plus one squashed
-  commit with the same tree as the working branch. Rebuild it after new work:
-  `git log -1 --format=%B publish | git commit-tree HEAD^{tree} -p c427c5d -F -`.
-  Never push to `origin` (rxri/tidalRPC); the owner will add their own remote.
+- Workflow: GitHub `main` (remote `github`, YHKCyber/tidalrpc) is the source of
+  truth. Branch from it, open PRs, squash-merge; never rewrite published history.
+  Maintainer/PR/release steps: docs/MAINTAINING.md, scripts/release.sh. Pushing to
+  `origin` (rxri/tidalRPC) is disabled locally and must never be re-enabled.
 - Verified: local CI (unit tests, build checks), fresh-clone CI, settings
   migration, single-instance handoff, light-use energy sample (~0.2% CPU).
 - 2026-10-01: Owner ran the manual checks; only issue is the known approximate
   timer (documented). Builds are reproducible: a fresh build of `publish` matches
-  the tested app and TidalRPC-1.0.0.zip exactly. Next: create the GitHub repo,
-  push `publish` to its main, tag v1.0.0 and attach the zip.
+  the tested app and TidalRPC-1.0.0.zip exactly. v1.0.0 is released on GitHub
+  (YHKCyber/tidalrpc). Local `main` matches the working branch.

@@ -1,0 +1,50 @@
+name: Bug report
+description: Something isn't working as expected.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Please don't include Discord tokens, account details or screenshots of private conversations.
+  - type: input
+    id: version
+    attributes:
+      label: TidalRPC version
+      description: Shown in the menu under About TidalRPC.
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "macOS 26.1"
+    validations:
+      required: true
+  - type: input
+    id: status
+    attributes:
+      label: Menu-bar status
+      description: The first line of the TidalRPC menu, for example "Active" or "Waiting for TIDAL".
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open TIDAL and play a track
+        2. Minimize TIDAL
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Screenshots of TidalRPC's own menu or settings window are welcome.

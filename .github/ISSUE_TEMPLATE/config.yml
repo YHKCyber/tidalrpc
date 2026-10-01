@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Using Windows?
+    url: https://github.com/rxri/tidalRPC
+    about: This project is macOS-only. The original tidalRPC supports Windows.

@@ -4,6 +4,32 @@ Show what you’re playing in TIDAL as Discord Rich Presence. A small native
 Swift/AppKit menu-bar app with an on-demand SwiftUI settings window. No
 Electron, Node or third-party packages.
 
+## Why a native version?
+
+[tidalRPC](https://github.com/rxri/tidalRPC) by ririxi is built with Electron,
+which lets one codebase run on both Windows and macOS. While using it on a Mac,
+we tracked down a memory leak in one of its native dependencies and found that,
+on macOS specifically, the app could be far lighter if it were written in Swift
+with Apple’s own frameworks. That made this a separate, Mac-only project: it
+doesn’t run on Windows, so Windows users should keep using the original.
+
+| | Electron version | Native version |
+|---|---|---|
+| App size | 449 MB | 1.4 MB |
+| Memory | ~130 MB across three processes | ~21 MB, one process |
+| CPU while running | Up to 13–22% in local tests | ~0.2% |
+
+Figures come from one Apple silicon Mac and will vary by setup.
+
+It also keeps working when TIDAL isn’t on screen. The original only detects
+TIDAL while its window is visible, so presence stops when TIDAL is minimized,
+hidden or on another desktop. This version reads TIDAL’s window title in all of
+those cases.
+
+The native version only checks for TIDAL while TIDAL and Discord are both open,
+pauses while your Mac sleeps, checks less often when music is paused or Low Power
+Mode is on, and only updates Discord when something changes.
+
 ## Install
 
 Requires macOS 26 or later on a Mac with Apple silicon. Intel Macs aren’t supported.
@@ -51,6 +77,11 @@ as Screen Recording. It never captures screenshots and never reads Discord’s U
 or account data. It only talks to Discord through the local Rich Presence socket.
 
 Playback time is estimated: window titles don’t expose position or seeking.
+
+## Contributing
+
+Bug reports and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md)
+for what fits the project and how to submit changes.
 
 ## Credits and license
 
